@@ -5,20 +5,14 @@
       <map>
         <entry key="..\:/Users/katz1/AndroidStudioProjects/DreamXtractor/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/katz1/AndroidStudioProjects/DreamXtractor/app/src/main/res/layout/dream_recorder.xml" value="0.23978201634877383" />
-<<<<<<< Updated upstream
-        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/font/appfonts.xml" value="0.234375" />
-        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/activity_main.xml" value="0.3605072463768116" />
-        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/dream_recorder.xml" value="0.2961240310077519" />
-=======
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/ic_iconmonstr_headphones_3.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/media_header_bg.xml" value="0.3828125" />
-        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/activity_main.xml" value="0.3555253623188406" />
+        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/activity_main.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/dream_recorder.xml" value="0.4025157232704403" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/fragment_alarm.xml" value="0.22" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/fragment_audio_list.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/player_sheet.xml" value="0.33" />
->>>>>>> Stashed changes
       </map>
     </option>
   </component>
