@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6177FC</color>
+    <color name="colorPrimaryDark">#576EF7</color>
+    <color name="colorAccent">#FF6584</color>
+    <color name="colorDarkBlue">#3D4054</color>
+    <color name="white">#ffffff</color>
+    <color name="adhocland1">#262521</color>
+    <color name="adhocland2">#59554D</color>
+    <color name="adhocland3">#8C8984</color>
+    <color name="adhocland4">#D9D0C5</color>
+    <color name="adhocland5">#A69F97</color>
+
+
+
+</resources>
