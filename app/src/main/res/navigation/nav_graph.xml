@@ -9,7 +9,16 @@
         android:id="@+id/alarmFragment"
         android:name="com.kaz.dreamxtractor.AlarmFragment"
         android:label="fragment_alarm"
-        tools:layout="@layout/fragment_alarm" />
+        tools:layout="@layout/fragment_alarm" >
+        <action
+            android:id="@+id/action_alarmFragment_to_audioListFragment"
+            app:destination="@id/audioListFragment"
+            app:exitAnim="@anim/fade_out"
+            app:enterAnim="@anim/slide_in"
+
+
+            />
+    </fragment>
     <fragment
         android:id="@+id/audioListFragment"
         android:name="com.kaz.dreamxtractor.AudioListFragment"
