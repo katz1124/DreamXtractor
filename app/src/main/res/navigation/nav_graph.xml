@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/alarmFragment">
+    app:startDestination="@id/alarmFragment"
+    >
 
     <fragment
         android:id="@+id/alarmFragment"
@@ -15,13 +16,16 @@
             app:destination="@id/audioListFragment"
             app:exitAnim="@anim/fade_out"
             app:enterAnim="@anim/slide_in"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out"
+        />
 
 
-            />
     </fragment>
     <fragment
         android:id="@+id/audioListFragment"
         android:name="com.kaz.dreamxtractor.AudioListFragment"
         android:label="fragment_audio_list"
-        tools:layout="@layout/fragment_audio_list" />
+        tools:layout="@layout/fragment_audio_list"
+        />
 </navigation>

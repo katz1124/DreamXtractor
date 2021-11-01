@@ -59,7 +59,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 
         Uri soundUri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"+ context.getPackageName() + "/" + R.raw.blu);
         NotificationCompat.Builder notificationBuilder =
-                new NotificationCompat.Builder(context, "dreamX02")
+                new NotificationCompat.Builder(context, "dreamX03")
                         .setSmallIcon(R.drawable.ic_launcher_background)
                         .setContentTitle("Wake up neo")
                         .setContentText("Tap to start recording!")

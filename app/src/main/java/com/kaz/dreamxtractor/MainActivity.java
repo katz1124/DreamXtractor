@@ -50,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
             public void onTimeChanged(TimePicker timePicker, int hourOfDay, int minute) {
                 mHour= hourOfDay;
                 mMin= minute;
-                timeStr=mHour+":"+mMin;
+                if(mMin<10)
+                    timeStr=mHour+":0"+mMin;
+                else
+                    timeStr=mHour+":"+mMin;
                 timetext.setText(timeStr);
 
             }
@@ -74,7 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void cancelRepeatingTimer(View view){
         Context context = this.getApplicationContext();
-
+        if(mMin<10)
+            timeStr=mHour+":0"+mMin;
+        else
+            timeStr=mHour+":"+mMin;
+        timetext.setText(timeStr);
         if(alarm != null){
             alarm.CancelAlarm(context);
         }else{
@@ -92,12 +99,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(context, "Alarm is null", Toast.LENGTH_SHORT).show();
         }
     }
+    public void setTime(){
+        if(mMin<10)
+            timeStr=mHour+":0"+mMin;
+        else
+            timeStr=mHour+":"+mMin;
+        timetext.setText("set to"+timeStr);
+    }
+
 
     public void setTimer(){
         AlarmManager alarmManager= (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Date date = new Date();
-        timeStr=mHour+":"+mMin;
-        timetext.setText("Set to " + timeStr);
+        setTime();
         cal_now.setTime(date);
         cal_alarm.setTime(date);
 
@@ -123,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
             CharSequence name = "dreamxtractor";
             String description = "alarm to record dreams";
             int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("dreamX02", name, importance);
+            NotificationChannel channel = new NotificationChannel("dreamX03", name, importance);
             channel.setDescription(description);
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -131,8 +145,6 @@ public class MainActivity extends AppCompatActivity {
                     .build();
 
             channel.setSound(soundUri, audioAttributes);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
             ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE))
                     .createNotificationChannel(channel);
         }
