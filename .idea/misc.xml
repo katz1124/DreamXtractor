@@ -10,9 +10,10 @@
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/media_header_bg.xml" value="0.3828125" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/player_bg.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/recorder_bg.xml" value="0.2947916666666667" />
+        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/drawable/screen_bc_dark.xml" value="0.2203125" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/activity_main.xml" value="0.21614583333333334" />
-        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/dream_recorder.xml" value="0.22" />
-        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/fragment_alarm.xml" value="0.25" />
+        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/dream_recorder.xml" value="0.2" />
+        <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/fragment_alarm.xml" value="0.18" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/fragment_audio_list.xml" value="0.25" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/fragment_blank.xml" value="0.275" />
         <entry key="..\:/Users/katz1/Documents/GitHub/DreamXtractor/app/src/main/res/layout/player_sheet.xml" value="0.5" />

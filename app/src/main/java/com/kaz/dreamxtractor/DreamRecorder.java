@@ -25,6 +25,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import me.ibrahimsn.particle.ParticleView;
+
 public class DreamRecorder extends AppCompatActivity {
 
     private ImageButton recordBtn;
@@ -36,7 +38,10 @@ public class DreamRecorder extends AppCompatActivity {
     private String recordFile;
     private Chronometer timer;
     private TextView filenameText;
-    
+
+    private ParticleView particleView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,7 +50,7 @@ public class DreamRecorder extends AppCompatActivity {
         recordBtn= findViewById(R.id.record_btn);
         timer= findViewById(R.id.record_timer);
         filenameText= findViewById(R.id.record_filename);
-
+        particleView = findViewById(R.id.particleView);
 
         recordBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -70,6 +75,18 @@ public class DreamRecorder extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        particleView.resume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        particleView.pause();
     }
 
     private void startRecording() {

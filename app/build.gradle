@@ -45,5 +45,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
+    implementation 'com.github.ibrahimsn98:android-particles:2.0'
+
 
 }

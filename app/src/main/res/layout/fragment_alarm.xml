@@ -26,7 +26,7 @@
             android:layout_marginBottom="28dp"
             app:layout_constraintBottom_toTopOf="@+id/button2"
             app:layout_constraintStart_toStartOf="@+id/button2"
-            app:srcCompat="@android:drawable/screen_background_dark" />
+            app:srcCompat="@drawable/screen_bc_dark"  />
 
         <Button
             android:id="@+id/button2"
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="@+id/button2"
             app:layout_constraintTop_toBottomOf="@+id/button4"
             app:layout_constraintVertical_bias="0.378"
-            app:srcCompat="@android:drawable/screen_background_dark" />
+            app:srcCompat="@drawable/screen_bc_dark"  />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -125,10 +125,11 @@
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/adhocland4"
+        android:background="#00ffffff"
         android:padding="16dp"
         android:src="@drawable/recorder_list_btn"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
