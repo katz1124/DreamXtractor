@@ -6,9 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlarmFragment"
     android:background="@drawable/recorder_bg"
-    >
+    tools:context=".AlarmFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConstraintLayout2"
@@ -102,7 +101,7 @@
         android:id="@+id/TimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:clickable="false"
         android:duplicateParentState="false"
         android:editable="false"
@@ -114,9 +113,9 @@
         android:text="Not set"
         android:textAlignment="center"
         android:textColor="#59554D"
-        android:textSize="50sp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,8 +125,8 @@
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:padding="16dp"
         android:background="@color/adhocland4"
+        android:padding="16dp"
         android:src="@drawable/recorder_list_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

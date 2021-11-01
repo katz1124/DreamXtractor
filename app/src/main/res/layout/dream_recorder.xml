@@ -16,6 +16,24 @@
         app:srcCompat="@android:drawable/screen_background_dark" />
 
     <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="260dp"
+        android:layout_height="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/record_btn"
+        app:layout_constraintEnd_toStartOf="@+id/record_btn"
+        app:layout_constraintTop_toTopOf="@+id/record_btn"
+        app:srcCompat="@android:drawable/screen_background_dark" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="263dp"
+        android:layout_height="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/record_timer"
+        app:layout_constraintStart_toEndOf="@+id/record_timer"
+        app:layout_constraintTop_toTopOf="@+id/record_timer"
+        app:srcCompat="@android:drawable/screen_background_dark" />
+
+    <ImageView
         android:id="@+id/imageView8"
         android:layout_width="263dp"
         android:layout_height="7dp"
@@ -25,27 +43,32 @@
         app:srcCompat="@android:drawable/screen_background_dark" />
 
     <ImageButton
-        android:id="@+id/imageView12"
+        android:id="@+id/record_btn"
         android:layout_width="158dp"
         android:layout_height="141dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="56dp"
         android:background="@color/adhocland4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/record_timer"
-        app:srcCompat="@drawable/record_btn_stopped" />
+        app:srcCompat="@drawable/record_btn_stopped"
+        tools2:ignore="SpeakableTextPresentCheck" />
 
     <Chronometer
         android:id="@+id/record_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_width="259dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="108dp"
         android:fontFamily="@font/aldrich"
-        android:textColor="@color/adhocland2"
-        android:textSize="60dp"
+        android:orientation="horizontal"
+        android:shadowDx="20"
+        android:singleLine="false"
+        android:soundEffectsEnabled="false"
+        android:textAllCaps="false"
+        android:textColor="@color/adhocland5"
+        android:textSize="70dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -103,5 +126,17 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView4"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/record_filename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Press mic button to start recording"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/record_timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

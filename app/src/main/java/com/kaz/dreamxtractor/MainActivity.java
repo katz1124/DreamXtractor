@@ -77,11 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void cancelRepeatingTimer(View view){
         Context context = this.getApplicationContext();
-        if(mMin<10)
-            timeStr=mHour+":0"+mMin;
-        else
-            timeStr=mHour+":"+mMin;
-        timetext.setText(timeStr);
+        timetext.setText("not set");
         if(alarm != null){
             alarm.CancelAlarm(context);
         }else{
@@ -104,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             timeStr=mHour+":0"+mMin;
         else
             timeStr=mHour+":"+mMin;
-        timetext.setText("set to"+timeStr);
+        timetext.setText("set to "+timeStr);
     }
 
 
