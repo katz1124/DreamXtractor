@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.content.Context;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     TextView timetext;
     int mHour=12,mMin=0;
     String timeStr;
+    private Button oneTimeBtn;
+    private Button repeatBtn;
+    private Button cancelBtn;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -45,6 +50,50 @@ public class MainActivity extends AppCompatActivity {
         timePicker.setHour(12);
         timePicker.setMinute(0);
         timetext=findViewById(R.id.TimeText);
+
+        oneTimeBtn = findViewById(R.id.button2);
+        repeatBtn = findViewById(R.id.button);
+        cancelBtn = findViewById(R.id.button4);
+
+        oneTimeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = getApplicationContext();
+                setTimer();
+                if(alarm != null){
+                    alarm.setOnetimeTimer(context,cal_alarm.getTimeInMillis());
+                }else{
+                    Toast.makeText(context, "Alarm is null", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        repeatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = getApplicationContext();
+                setTimer();
+                if(alarm != null){
+                    alarm.SetAlarm(context,cal_alarm.getTimeInMillis());
+                }else{
+                    Toast.makeText(context, "Alarm is null", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = getApplicationContext();
+                timetext.setText("not set");
+                if(alarm != null){
+                    alarm.CancelAlarm(context);
+                }else{
+                    Toast.makeText(context, "Alarm is null", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker timePicker, int hourOfDay, int minute) {
@@ -59,12 +108,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
     @Override
     protected void onStart() {
         super.onStart();
     }
 
+
+    /*
     public void startRepeatingTimer(View view) {
         Context context = this.getApplicationContext();
         setTimer();
@@ -95,6 +148,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(context, "Alarm is null", Toast.LENGTH_SHORT).show();
         }
     }
+
+      */
+
+
+
+
+
+
+
     public void setTime(){
         if(mMin<10)
             timeStr=mHour+":0"+mMin;
@@ -102,6 +164,14 @@ public class MainActivity extends AppCompatActivity {
             timeStr=mHour+":"+mMin;
         timetext.setText("set to "+timeStr);
     }
+
+
+
+
+
+
+
+
 
 
     public void setTimer(){

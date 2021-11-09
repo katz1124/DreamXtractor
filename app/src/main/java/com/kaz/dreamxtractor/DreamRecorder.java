@@ -94,7 +94,7 @@ public class DreamRecorder extends AppCompatActivity {
         timer.start();
 
         String recordPath=this.getExternalFilesDir("/").getAbsolutePath();
-        SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd_hh:mm:ss", Locale.CANADA);
+        SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd_hh-mm-ss", Locale.CANADA);
         Date now=new Date();
         recordFile="DreamRec_"+formatter.format(now)+".3gp";
 

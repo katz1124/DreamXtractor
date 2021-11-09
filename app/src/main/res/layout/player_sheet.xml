@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/player_bg"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     app:behavior_hideable="true"
     app:behavior_peekHeight="70dp"
-    >
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
    <LinearLayout
        android:id="@+id/linearLayout"
@@ -65,7 +65,7 @@
    </LinearLayout>
 
    <TextView
-       android:id="@+id/textView3"
+       android:id="@+id/player_file_name"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
        android:layout_weight="4"
@@ -83,20 +83,20 @@
    <ImageButton
        android:id="@+id/player_play_btn"
        android:layout_width="wrap_content"
-       android:background="@color/adhocland4"
        android:layout_height="wrap_content"
        android:layout_marginTop="16dp"
+       android:background="@color/adhocland4"
        android:padding="16dp"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/textView3"
+       app:layout_constraintTop_toBottomOf="@+id/player_file_name"
        app:srcCompat="@drawable/player_play_btn" />
 
    <ImageButton
-       android:id="@+id/imageView13"
-       android:background="@color/adhocland4"
+       android:id="@+id/reb_button"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+       android:background="@color/adhocland4"
        android:padding="16dp"
        app:layout_constraintBottom_toBottomOf="@+id/player_play_btn"
        app:layout_constraintEnd_toStartOf="@+id/player_play_btn"
@@ -105,10 +105,10 @@
        app:srcCompat="@drawable/player_back_btn" />
 
    <ImageButton
-       android:id="@+id/imageView14"
-       android:background="@color/adhocland4"
+       android:id="@+id/next_button"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
+       android:background="@color/adhocland4"
        android:padding="16dp"
        app:layout_constraintBottom_toBottomOf="@+id/player_play_btn"
        app:layout_constraintEnd_toEndOf="parent"
@@ -117,14 +117,15 @@
        app:srcCompat="@drawable/player_forward_btn" />
 
    <SeekBar
+       android:id="@+id/player_seekbar"
        android:layout_width="0dp"
        android:layout_height="wrap_content"
        android:layout_margin="32dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
+
+
        app:layout_constraintStart_toStartOf="parent"
-
-
        app:layout_constraintTop_toBottomOf="@id/player_play_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
