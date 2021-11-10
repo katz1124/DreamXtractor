@@ -1,5 +1,7 @@
 package com.kaz.dreamxtractor;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,14 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +40,19 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    //migracion de variables del main
+    Calendar cal_alarm = Calendar.getInstance();
+    Calendar cal_now = Calendar.getInstance();
+    TimePicker timePicker;
+    TextView timetext;
+    int mHour=12,mMin=0;
+    String timeStr;
+    private Button oneTimeBtn;
+    private Button repeatBtn;
+    private Button cancelBtn;
+
+
 
     public AlarmFragment() {
         // Required empty public constructor
@@ -75,6 +97,60 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
         navController= Navigation.findNavController(view);
         listBtn= view.findViewById(R.id.record_list_btn);
         listBtn.setOnClickListener(this);
+
+        //Migracion de main
+        timePicker=(TimePicker)view.findViewById(R.id.timePicker);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            timePicker.setHour(12);
+            timePicker.setMinute(0);
+        }
+
+        timetext=view.findViewById(R.id.TimeText);
+
+        oneTimeBtn = view.findViewById(R.id.button2);
+        repeatBtn = view.findViewById(R.id.button);
+        cancelBtn = view.findViewById(R.id.button4);
+
+        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker timePicker, int hourOfDay, int minute) {
+                mHour= hourOfDay;
+                mMin= minute;
+                if(mMin<10)
+                    timeStr=mHour+":0"+mMin;
+                else
+                    timeStr=mHour+":"+mMin;
+                timetext.setText(timeStr);
+
+            }
+        });
+
+        oneTimeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setTimer();
+                ((MainActivity)getActivity()).setOneTime(cal_alarm.getTimeInMillis());
+            }
+        });
+        repeatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                setTimer();
+                ((MainActivity)getActivity()).setRepeat(cal_alarm.getTimeInMillis());
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timetext.setText("not set");
+                setTimer();
+                ((MainActivity)getActivity()).cancel();
+            }
+        });
+
+
     }
 
     @Override
@@ -94,4 +170,34 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
+
+
+    //Migracion del main
+
+    public void setTimer(){
+        Date date = new Date();
+        setTime();
+        cal_now.setTime(date);
+        cal_alarm.setTime(date);
+
+        cal_alarm.set(Calendar.HOUR_OF_DAY,mHour);
+        cal_alarm.set(Calendar.MINUTE,mMin);
+        cal_alarm.set(Calendar.SECOND,0);
+
+        if(cal_alarm.before(cal_now)){
+            cal_alarm.add(Calendar.DATE,1);
+        }
+    }
+    public void setTime(){
+        if(mMin<10)
+            timeStr=mHour+":0"+mMin;
+        else
+            timeStr=mHour+":"+mMin;
+        timetext.setText("set to "+timeStr);
+    }
+
+
+
+
 }
+

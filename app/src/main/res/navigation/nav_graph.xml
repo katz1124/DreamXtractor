@@ -26,6 +26,17 @@
         android:id="@+id/audioListFragment"
         android:name="com.kaz.dreamxtractor.AudioListFragment"
         android:label="fragment_audio_list"
-        tools:layout="@layout/fragment_audio_list"
+        tools:layout="@layout/fragment_audio_list">
+    <action
+        android:id="@+id/action_ListFragment_to_alarmFragmentaudio"
+        app:destination="@id/alarmFragment"
+        app:exitAnim="@anim/fade_out"
+        app:enterAnim="@anim/slide_in"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/slide_out"
+
+
+
         />
+    </fragment>
 </navigation>

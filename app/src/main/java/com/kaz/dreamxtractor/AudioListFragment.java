@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +38,7 @@ public class AudioListFragment extends Fragment implements AudioListAdapter.onIt
     private AudioListAdapter audioListAdapter;
     private MediaPlayer mediaPlayer=null;
     private boolean isPlaying=false;
-
+    private NavController navController;
 
 
 
@@ -95,7 +97,7 @@ public class AudioListFragment extends Fragment implements AudioListAdapter.onIt
         nextBtn=view.findViewById(R.id.next_button);
         rebBtn=view.findViewById(R.id.reb_button);
         playerSeekBar = view.findViewById(R.id.player_seekbar);
-
+        navController= Navigation.findNavController(view);
 
         String path=getActivity().getExternalFilesDir("/").getAbsolutePath();
         File directory= new File(path);
@@ -144,17 +146,23 @@ public class AudioListFragment extends Fragment implements AudioListAdapter.onIt
        nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isPlaying){
-                    pauseAudio();
-                    mediaPlayer.seekTo(mediaPlayer.getDuration());
-                    resumeAudio();
-                }else{
-                    if(fileToPlay!=null){
-                        mediaPlayer.seekTo(0);
-                    }
+                int actual=mediaPlayer.getCurrentPosition();
+                int duration=mediaPlayer.getDuration();
+                if(duration-actual>6000){
+                    if(isPlaying){
+                        pauseAudio();
+                        mediaPlayer.seekTo(actual+5000);
+                        resumeAudio();
 
+                    }else {
+                     if (fileToPlay != null) {
+                          mediaPlayer.seekTo(actual+5000);
+                     }
+                 }
                 }
-                playerSeekBar.setProgress(mediaPlayer.getCurrentPosition());
+                playerSeekBar.setProgress(mediaPlayer.getCurrentPosition()+5000);
+
+
             }
         });
 

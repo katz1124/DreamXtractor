@@ -10,6 +10,7 @@ import android.media.MediaRecorder;
 import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.provider.Settings;
 import android.view.View;
@@ -22,6 +23,7 @@ import androidx.core.app.ActivityCompat;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -38,12 +40,15 @@ public class DreamRecorder extends AppCompatActivity {
     private String recordFile;
     private Chronometer timer;
     private TextView filenameText;
-
+    private TextView timetxt;
     private ParticleView particleView;
-
+    private Date datenow;
+    private Calendar cal_now= Calendar.getInstance();
+    private String time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dream_recorder);
@@ -51,9 +56,21 @@ public class DreamRecorder extends AppCompatActivity {
         timer= findViewById(R.id.record_timer);
         filenameText= findViewById(R.id.record_filename);
         particleView = findViewById(R.id.particleView);
+        datenow=new Date();
+
+        cal_now.setTime(datenow);
+        timetxt=findViewById(R.id.textView2);
+        if(cal_now.get(Calendar.MINUTE)<10)
+            time=cal_now.get(Calendar.HOUR_OF_DAY)+":0"+cal_now.get(Calendar.MINUTE);
+        else
+            time=cal_now.get(Calendar.HOUR_OF_DAY)+":"+cal_now.get(Calendar.MINUTE);
+        timetxt.setText(time);
+
 
         recordBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+
+
                 if(isRecording){
                     
                     stopRecording();
@@ -61,9 +78,13 @@ public class DreamRecorder extends AppCompatActivity {
                     
                     
                     recordBtn.setImageDrawable(getResources().getDrawable(R.drawable.record_btn_stopped,null));
+                    recordBtn.setClickable(false);
                     isRecording=false;
+
+                    finishAndRemoveTask();
                 }
                 else{
+                    stop();
                     if(checkPermissions()){
                         startRecording();
                         recordBtn.setImageDrawable(getResources().getDrawable(R.drawable.record_btn_recording,null));
@@ -87,6 +108,12 @@ public class DreamRecorder extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         particleView.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stop();
     }
 
     private void startRecording() {
@@ -134,7 +161,7 @@ public class DreamRecorder extends AppCompatActivity {
         }
     }
 
-    public void stop(View view){
+    public void stop(){
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(this.NOTIFICATION_SERVICE);
         mNotificationManager.cancel(1);
     }
